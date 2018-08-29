@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example</title>
+
+  </head>
+  <body>
+    <div>
+        <ul>
+            <li> 
+                <h2> Hello </h2>
+                <code>
+                    &lt;p&gt; This is a paragraph &lt;\p&gt;
+                </code>
+            </li>
+            <li>
+                <code>
+                    <pre>
+    def function(x) {
+            return x%10;
+    }
+                    </pre>
+                    
+                </code>
+            </li>
+            <li> </li>
+        </ul>
+    </div>
+
+
+
+    <!-- 
+ 
+ Challenge 4: You have been tasked to create a 
+ for that sets a users profile. It will allow
+ them to do the following: 
+ 
+ - Enter their User name (input text, should not autocomplete)
+ - Email (input email)
+ - Number of pets (input number)
+ - Birthday (input date)
+ - Choose an prefix (select)
+ - Set a role (input type radio)
+ - Show public profile (checkbox, should be checked by default)
+ - Enter a bio (textarea)
+ - Upload a picture (input file, should only accept images)
+ - Self Destruct (input checkbox, should be DISABLED by default since we haven't implemented this feature yet)
+ 
+ Your job is to: 
+ - Organize this better by adding tags
+ - Add sensible placeholders
+ - Connect lables to elements
+ - Associate lables with their form element
+ 
+ The form must to send file data. Set the attributes on the form tag: 
+ - It must send a file wat are the required attributes for this?
+ 
+ Stretch Challenge: Use the pattern attribute to check the values in
+ fields meet requirements. (you will need to have experience with 
+ regular expressions)
+ - Name should not be empty. 
+ - Name should be at least 6 characters
+ - Name should only contain letters and numbers
+ 
+ -->
+ 
+    <form action = "/" method = "">
+        <p>
+            <label>Name</label>
+            <input name="name" type="text" placeholder="Your Name" pattern="[a-zA-Z0-9]+{6,}">
+        </p>
+        <p>   
+            <label>Email</label>
+            <input name="email" type="email" placeholder="example@example.com">
+        </p> 
+        <p>   
+            <label>Pet Count</label>
+            <input name="pets" type="text" placeholder="0">
+        </p> 
+        <p>   
+            <label>Birthday</label>
+            <input name="birthday" type="date">
+        </p>
+        <p>   
+            <select name="prefix">
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Ms</option>
+            <option>Sir</option>
+            <option>Madam</option>
+            <option>Dr</option>
+            <option>None</option>
+            </select>
+        </p>
+        <p>   
+            <input id = "radio-admin" type="radio" name="role" value="Admin" checked/>
+            <label for = "radio-admin">Admin</label>
+            <input id = "radio-editor" type="radio" name="role" value="Editor" />
+            <label for = "radio-editor">Editor</label>
+            <input id = "radio-contributor" type="radio" name="role" value="Contributor" />
+            <label for = "radio-contributor">Contributor</label>
+        </p>
+        <p>     
+            <input type="checkbox" name="public">
+            <label>Public Bio</label>
+        </p>
+        <p>  
+            <textarea name="bio"></textarea>
+        </p>
+        <p>   
+            <label for = "upload">Upload Image</label>
+            <input id = "upload" name="image" type="file" style="display: none">
+        <p>    
+            <label>Self Destruct</label>
+            <input name="self-destruct" type="check">
+        </p>
+        <p>    
+            <button type="submit">Submit</button>
+        </p>   
+    </form>
+
+
+  </body>
+</html>
