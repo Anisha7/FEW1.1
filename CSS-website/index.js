@@ -19,7 +19,7 @@ function changeB2() {
 }
 
 function changeB3() {
-    hero.style.backgroundImage = "linear-gradient(rgba(44, 62, 80,.3), rgba(44, 62, 80,.3)), url('images/doughNutBanner-03.png')";
+    hero.style.backgroundImage = "linear-gradient(rgba(44, 62, 80,.3), rgba(44, 62, 80,.3)), url('images/doughNutBanner2-03.png')";
     heroTitle.innerText = "DoughNut";
     heroDescription.innerText = "Managing budgets is no longer a challenge!";
     console.log("changed B3");
@@ -35,7 +35,7 @@ window.setInterval(function(){
         changeB3();
     }
 
-    else if (heroTitle.innerText === "") {
+    else if (heroTitle.innerText === "DoughNut") {
         changeB1();
     }
 

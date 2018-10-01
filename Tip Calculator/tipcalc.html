@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tip Calculator</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      h1 {
+        color: darkred
+      }
+      input {
+        margin-top: 5px;
+        padding: 10px;
+        border-radius: 10%;
+        width: 100%;
+        text-align: center;
+      }
+
+      p {
+        width: 30%;
+      }
+
+      .label {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .answer {
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      
+      .u {
+        border-bottom: 1px solid gray;
+      }
+
+      #calculate {
+        width: 35%;
+        padding: 10px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: darkred;
+        color: white;
+        font-size: 20px;
+      }
+      
+      .sub-container {
+        display: flex;
+      }
+
+      .change-val {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- html elements -->
+    <div class = "container">
+      <h1>Tip Calculator</h1>
+      <!-- reimplemented with string-->
+      <!-- <p>
+          <label for="amount-str">Bill $</label> <br>
+          <button id = "sub-amount-str" onclick="subAmountStr()">-</button>
+          <input id="amount-str" type="string" value="$0.00">
+          <button id = "add-amount-str" onclick="addAmountStr()">+</button>
+      </p> -->
+
+      <p>
+        <label for="amount">Bill $</label> <br>
+        <div class = "sub-container">
+          <button class = "change-val" id = "sub-amount" onclick="subAmount()">-</button>
+          <input id="amount" type="number" value="0.00">
+          <button class = "change-val" id = "add-amount" onclick="addAmount()">+</button>
+        </div>
+      </p>
+      
+      <p>
+        <label for="percent">Tip %</label> <br>
+        <div class = "sub-container">
+          <button class = "change-val" id = "sub-percent" onclick="subPercent()">-</button>
+          <input id="percent" type="number" value="0.00">
+          <button class = "change-val" id = "add-percent" onclick="addPercent()">+</button>
+        </div>
+      </p>
+
+      <p>
+          <label for="people">Number of People</label> <br>
+          <input id="people" type="number" value="1">
+        </p>
+      
+      <button id="calculate">Calculate</button>
+      
+      <p>
+        <span class = "label">Tip:</span>
+        <span class = "answer" id="tip">$0.00</span>
+      </p>
+      
+      <p>
+        <span class = "label">Total:</span>
+        <span class = "answer" id="total">$0.00</span>
+      </p>
+
+      <p class = "u">Per Person</p>
+
+      <p>
+          <span class = "label">Tip:</span>
+          <span class = "answer" id="person-tip">$0.00</span>
+        </p>
+        
+        <p>
+          <span class = "label">Total:</span>
+          <span class = "answer" id="person-total">$0.00</span>
+        </p>
+
+
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+      // Get a reference to elements 
+      const calculateButton = document.getElementById('calculate');
+      const tipElement      = document.getElementById('tip');
+      const amountInput     = document.getElementById('amount');
+      const percentInput    = document.getElementById('percent');
+      const people    = document.getElementById('people');
+      const total    = document.getElementById('total');
+      const oneTip = document.getElementById('person-tip');
+      const oneTotal = document.getElementById('person-total');
+
+      // string vars
+      //const amountInputStr = document.getElementById('amount-str');
+      
+      // Define a function to handle clicks on the calculate button
+      calculateButton.onclick = (e) => {
+        // string implementation
+        //const amountStr = Number(amountInputStr.value.replace('$',''));
+        //total.innerHTML = '$' + amountStr.toFixed(2);
+
+        // numbers
+        // Get the values from the inputs
+        const amount = Number(amountInput.value);
+        const percent = Number(percentInput.value);
+        const numPeople = Number(people.value);
+        // Calculate the tip amount
+        const tipAmount = amount * percent / 100;
+        // Display the tip amount 
+        tipElement.innerHTML = '$' + tipAmount.toFixed(2);
+
+        // Calculate total amount
+        const totalAmount = tipAmount + amount;
+        // Display total amount
+        total.innerHTML = '$' + totalAmount.toFixed(2);
+
+        // Calculate per person tip
+        const peopleTip = tipAmount/numPeople;
+        // Display per person tip
+        oneTip.innerHTML = '$' + peopleTip.toFixed(2);
+
+        // Calculate per person total
+        const personTotal = totalAmount/numPeople;
+        // Display per person total
+        oneTotal.innerHTML = '$' + personTotal.toFixed(2);
+
+      }
+
+      // Adding/Subtracting buttons
+
+      // subtract from amount
+      function subAmount(){
+        const val = Number(amountInput.value);
+        if (val > 0) {
+          amountInput.value = ( val - 1).toFixed(2);
+        }
+      }
+
+      function addAmount(){
+        amountInput.value = (Number(amountInput.value) + 1).toFixed(2);
+      }
+
+      function subPercent(){
+        const val = Number(percentInput.value);
+        if (val > 0) {
+          percentInput.value = (val - 1).toFixed(2);
+        }
+      }
+
+      function addPercent(){
+        percentInput.value = (Number(percentInput.value) + 1).toFixed(2);
+      }
+
+    </script>
+  </body>
+</html>
