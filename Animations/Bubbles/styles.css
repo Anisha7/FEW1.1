@@ -8,6 +8,12 @@ body {
 /* color1 : "hsla(208, 86%, 63%, 0.927) 90%"
 color2 : "hsla(298, 85%, 63%, 0.927) 90%"
 const color3 = "hsla(60, 83%, 66%, 0.927) 90%" */
+.root {
+    --color-0: hsla(161, 93%, 68%, 0.927) 90%;
+    --color-1: hsla(208, 86%, 63%, 0.927) 90%;
+    --color-2: hsla(298, 85%, 63%, 0.927) 90%;
+    --color-3: hsla(60, 83%, 66%, 0.927) 90%;
+}
 
 @keyframes colorChanger {
     0% {
@@ -118,6 +124,11 @@ h2 {
       );
     -webkit-animation: colorChanger 5s infinite; /* Safari 4.0 - 8.0 */
     animation: colorChanger 5s infinite;
+}
+
+.bubble:nth-child(3) {
+    animation-delay: 3s;
+    -webkit-animation-delay: 3s;
 }
 
 
